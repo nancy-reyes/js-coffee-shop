@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hackbright Coffee Shop</title>
+
+    <!-- Bootstrap links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <!-- Google fonts link -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway" >
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="static/coffee.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="starter-template">
+        <h1>Coffee Shop</h1>
+        <br>
+
+        <img id="coffee-image" src="LOLWUT" alt="make this image work with js" height="300" width="200">
+
+        <h3 id="message">Click The Image To Order Coffee</h3>
+
+        <table class="table">
+            <tr>
+                <td class="col-md-2">
+                    <button class="btn btn-default" id="espresso">Espresso</button>
+                </td>
+                <td class="col-md-2">
+                    <button class="btn btn-default" id="latte">Latte</button>
+                </td>
+                <td class="col-md-2">
+                    <button class="btn btn-default" id="hot-chocolate">Hot Chocolate</button>
+                </td>
+            </tr>
+            <tr>
+                <td>$3.25</td>
+                <td>$4.15</td>
+                <td>$2.50</td>
+            </tr>
+        </table>
+
+        <h4>Total: <span id="revenue"><!-- Revenue Message will show up here --></span></h4>
+    </div>
+</div>
+
+<script>
+
+    // Set these variables to their DOM elements
+
+    let coffeeImage;
+    let revenueMessage;
+
+    // use this JavaScript object in further study step
+
+    const prices = {
+        "brew": 2.05,
+        "espresso": 3.25,
+        "latte": 4.15,
+        "hot chocolate": 2.50
+    };
+
+    let mainCoffeeImage = document.querySelector('#coffee-image');
+    mainCoffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
+
+    function makeCoffee(evt) {
+       mainCoffeeImage.setAttribute('src', 'static/coffee_machine.jpg');
+        setTimeout(displayCoffee, 1500);
+    }
+    
+
+    function displayCoffee() {
+       mainCoffeeImage.setAttribute('src', 'static/coffee_mug.jpg');
+       setTimeout(displayBeans, 2500);
+    }
+
+    function displayBeans() {
+        mainCoffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
+    }
+
+
+    mainCoffeeImage.addEventListener('click', makeCoffee);
+
+
+
+// ***************************************************************************
+// NOTE ON EVENT HANDLERS:
+
+// If makeCoffee were to take an argument, we would need to wrap it in an
+// anonymous function and that anonymous function would then become the event
+// handler. (See below.)
+    // mainCoffeeImage.addEventListener('click', function(evt) {
+    //     makeCoffee(thing);
+
+    // function makeCoffee(thing) {
+    //    mainCoffeeImage.setAttribute('src', 'static/coffee_machine.jpg');
+    //     setTimeout(displayCoffee, 1500);
+    // }
+
+// Since makeCoffee does not take any arguments we do not need to use an
+// anonymous function as a wrapper, and therefore makeCoffee is used our
+// event-handler in our event-listener. (Here, 'evt' is just used to represent
+// that an event-object will get passed in when the 'click' happens--it's
+// optional to include, but it does serve as a useful reminder.)
+    // function makeCoffee(evt) {
+    //    mainCoffeeImage.setAttribute('src', 'static/coffee_machine.jpg');
+    //     setTimeout(displayCoffee, 1500);
+    // }
+
+    //     mainCoffeeImage.addEventListener('click', makeCoffee);
+    // });
+
+// NOTE: setTimeout cannot be passed as an even-handler in an event-listener.
+// **************************************************************************
+
+
+
+    
+
+</script>
+
+</body>
+</html>
